@@ -1,0 +1,83 @@
+Install instructions:
+
+Download and unzip the uno.zip with the similar process of unzipping release code
+of assignment 2. All other functionalities, are also similar to those in assignment
+2, and there is attribution listed in each mli file that this project is built 
+based on release code and assignment code of A2. 
+
+To test the game interface, 
+locate in the right folder and type "make play". To start the game, type 
+"uno.json", as the game instruction says. You may choose a player number 
+between 2 and 10. To test the game quickly, choose 10 so the game end soon
+either because a non user player wins or the cards runs out; to try more 
+commands or to win the game, use 2 so you can play longer. 
+
+There are several valid commands to try:
+
+take - randomly take a new card until there is no card left
+
+use + color + number - e.g. use red zero
+                      play a card if you have it and it has either the same number 
+                      or the same color as the current card
+
+use + color + "draw two" - e.g. use green draw two 
+                          if the current card is a green one or a draw two of 
+                          other colors then you can use 
+                          green draw two if you have it. the next player will 
+                          get two cards. if there are no enough cards left, 
+                          you are recommended by error message to quit and 
+                          restart the game. 
+
+use + color + "skip" - e.g. use blue skip 
+                      the color/number matching mechanism applies. if you use 
+                      a skip card, the next player won't be able to take actions
+                      in this round. 
+
+use + color + "reverse" - e.g. use yellow reverse
+                        the color/number matching mechanism applies. if you use 
+                        a reverse card, the order of the players taking actions 
+                        will get reversed. For example, if player 1 uses a 
+                        reverse card and the next was player 2's turn, it now 
+                        turns to player 10, 9, 8, ect. 
+
+use + "wild color" - i.e. use wild color 
+                    a wild color card can be used regardless of the current 
+                    card. if used, you are asked to choose a color (red, 
+                    green, yellow, blue. anything else gives you error message.)
+                    The current card will change to that color, remaining the 
+                    number. e.g. if you choose green, the current card red one 
+                    will change to green one. 
+
+use + "wild draw four" -i.e. use wild draw four 
+                       a wild color card can be used anytime as long as there 
+                       are enough cards left. if not, it's impossible for you 
+                       to win anyway so you are recommended by error message to
+                       quit and restart. if a wild draw four card is used, you
+                       are asked to choose a color to change to, same as wild 
+                       color. also the next player gets four more cards. 
+
+uno - you are reminded each time at your turn that if you have only one card 
+      left, you need to call uno. this only applies to you but not the non user
+      players. if you forgets to do so, you fails to take action in this round 
+      and you get one more card. after call uno when you have one card left, 
+      if you can use that card, use it and you win; if you can't use it, take
+      a new card so the game continues. 
+
+quit - quit the game
+
+Every time a new round of game begins, a random initial current card is generated 
+and seven randoms cards are given to you and each of other players. The aim 
+is to use out all cards. 
+
+You can see your cards left, the number of cards left for each player 
+and the number of cards left after each action. You can't see what exactly 
+cards other players are holding, unless you uncomment the line 92-103 of the 
+main.ml, those are cheating lines if you want to check whether the game 
+runs properly. 
+
+p.s. there are sometimes situations when a wild card is used after a wild card, 
+the card number is set to zero after you requires a color change (since it 
+is illegal to have a card like red color / red draw four. )
+
+p.p.s a quick way to check the program is to let user_command = "take" in line
+218 of main.ml so the games goes on automatically.  
