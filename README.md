@@ -19,6 +19,6 @@
    - "use + color + number / functional cards": drop the card if it follows the game rule
    - "uno": call when there is only one card left
    - "quit": exit the game 
-All other commands will be processed as invalid and the user will be prompted to make another one. 
+- All other commands will be processed as invalid and the user will be prompted to make another one. 
 5.  Keeping track of the real-time status of the game: the number of cards held by each player, the current card held by each player.
 
